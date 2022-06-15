@@ -1,6 +1,6 @@
 # genCalc
 
-A fully-functioning basic calculator entirely coded on Python.
+A fully-functioning basic calculator entirely coded in Python.
 
 
 # TO DO LIST:
