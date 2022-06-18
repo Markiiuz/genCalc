@@ -13,8 +13,11 @@ window.config(background="white")
 sq = Canvas(window, width=400, height= 500, bg="white")
 sq.create_rectangle(0, 0, 400, 500, outline = 'black', width=18) # Outer outline
 sq.create_rectangle(30, 30, 369, 100, outline = 'black', width=8) # Input desplay outline
-sq.create_text(43, 80, text="0", fill="black", font=('"Century Gothic" 20 bold'), anchor="w") # Answer text
 sq.create_text(25, 125, text="gen Calculator", fill="black", font=('"Century Gothic" 20 bold'), anchor="w")
+
+# Answer
+answer_text = Entry(font=('"Century Gothic" 20 bold'))
+answer_text.place(x=33, y=33, width=333, height=65)
 
 sq.create_rectangle(24, 434, 101, 472, outline = "black", width = 9) #plus-minus
 sq.create_rectangle(114, 434, 191, 472, outline = "black", width = 9) #n0
