@@ -16,8 +16,35 @@ sq.create_rectangle(30, 30, 369, 100, outline = 'black', width=8) # Input despla
 sq.create_text(25, 125, text="gen Calculator", fill="black", font=('"Century Gothic" 20 bold'), anchor="w")
 
 # Answer
-answer_text = Entry(font=('"Century Gothic" 20 bold'))
-answer_text.place(x=33, y=33, width=333, height=65)
+answertext = Entry(font=('"Century Gothic" 20 bold'))
+answertext.place(x=33, y=33, width=333, height=65)
+
+def getresult():
+    global x
+    global answer
+    global errortext
+    try: 
+        x = answertext.get()
+        answertext.delete(1)
+        answertext.pack()
+        answer = Label(window, font=('"Century Gothic" 20 bold'), text=eval(str(x)), anchor="w", bg="white")
+        answer.place(x=33, y=33, width=333, height=65)
+    except: 
+        answertext.delete(1)
+        answertext.pack()
+        errortext= Label(window, font=('"Century Gothic" 20 bold'), text="Error", anchor="w", bg="white")
+        errortext.place(x=33, y=33, width=333, height=65)
+
+def cfun():
+    answertext.delete(1)
+    answertext.pack()
+    answertext = Entry(font=('"Century Gothic" 20 bold'))
+    answertext.place(x=33, y=33, width=333, height=65)
+
+
+
+    
+    
 
 sq.create_rectangle(24, 434, 101, 472, outline = "black", width = 9) #plus-minus
 sq.create_rectangle(114, 434, 191, 472, outline = "black", width = 9) #n0
@@ -64,7 +91,7 @@ sqrt = Button(window, text = "sqrt", height= 2, width= 10, border=0, background=
 
 off = Button(window, text = "Off", height= 2, width= 10, border=0, background= "white")
 cc = Button(window, text = "C", height= 2, width= 10, border=0, background= "white")
-equal = Button(window, text = "=", height= 2, width= 10, border=0, background= "white")
+equal = Button(window, text = "=", height= 2, width= 10, border=0, background= "white", command=getresult)
 dot = Button(window, text = ".", height= 2, width= 10, border=0, background= "white")
 plus_minus = Button(window, text = "+/-", height= 2, width=10, border=0, background= "white")
 
