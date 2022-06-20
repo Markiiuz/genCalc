@@ -9,8 +9,9 @@ window = Tk()
 window.title("gen Calculator")
 window.geometry("400x500")
 window.config(background="white")
+window.iconbitmap("C:/Users/utente/Documents/.code/Tools/genCalc/icon.ico")
 
-# Squares and design
+# Design
 sq = Canvas(window, width=400, height= 500, bg="white")
 sq.create_rectangle(0, 0, 400, 500, outline = 'black', width=18) # Outer outline
 sq.create_rectangle(30, 30, 369, 100, outline = 'black', width=8) # Input desplay outline
@@ -65,7 +66,6 @@ def getresult():
         answer.place(x=33, y=33, width=333, height=65)
 
 # Other button functions
-
 def fun0():
     answertext.insert("end", "0")
 def fun1():
@@ -95,25 +95,17 @@ def funtimes():
     answertext.insert("end", "*")
 def fundivide():
     answertext.insert("end", "/")
-def funsqrt():
-    try: 
-        x = answertext.get()
-        y = sqrt(int(x))
-        answertext.delete(0, "end")
-        answertext.pack()
-        answer = Label(window, font=('"Century Gothic" 20 bold'), text=y, anchor="w", bg="white")
-        answer.place(x=33, y=33, width=333, height=65)
-    except: 
-        answertext.delete(0, "end")
-        answertext.pack()
-        answer = Label(window, font=('"Century Gothic" 20 bold'), text="Error", anchor="w", bg="white")
-        answer.place(x=33, y=33, width=333, height=65)
-
-
 def fundot():
     answertext.insert("end", ".")
 def funplusminus():
     answertext.insert(0, "-")
+def funsqrt(): 
+        global x
+        x = answertext.get()
+        answertext.delete(0, "end")
+        answertext.pack()
+        answer = Label(window, font=('"Century Gothic" 20 bold'), text=math.sqrt(int(x)), anchor="w", bg="white")
+        answer.place(x=33, y=33, width=333, height=65)
 
 # Buttons
 n0 = Button(window, text = "0", height= 2, width= 10, border=0, background= "white", command=fun0)
@@ -139,7 +131,7 @@ equal = Button(window, text = "=", height= 2, width= 10, border=0, background= "
 dot = Button(window, text = ".", height= 2, width= 10, border=0, background= "white", command=fundot)
 plus_minus = Button(window, text = "+/-", height= 2, width=10, border=0, background= "white", command=funplusminus)
 
-# Button locations
+# Button positioning
 plus_minus.place(x=25, y=435)
 n0.place(x=115, y=435)
 dot.place(x=205, y=435)
